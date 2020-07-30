@@ -30,10 +30,10 @@ mercadopago.configure({
 
 //setup Express Application
 const app = express();
+app.use(cors());
 app.use(morgan("short"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
 app.use(passport.initialize());
 app.use("/api", routes);
 
