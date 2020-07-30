@@ -28,15 +28,7 @@ mercadopago.configure({
   access_token: process.env.MP_TOKEN,
 });
 
-//setup Express Application
-const app = express();
-app.use(cors());
-app.use(morgan("short"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(passport.initialize());
-app.use("/api", routes);
-
+//cors set up
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", '*');
   res.header("Access-Control-Allow-Credentials", true);
@@ -44,6 +36,15 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
   next();
 });
+
+//setup Express Application
+const app = express();
+app.use(morgan("short"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use("/api", routes);
+
 
 //inicializando aplicacion
 const port = process.env.PORT || 8080;
