@@ -28,8 +28,6 @@ mercadopago.configure({
   access_token: process.env.MP_TOKEN,
 });
 
-//cors set up
-
 //setup Express Application
 const app = express();
 app.use(morgan("short"));

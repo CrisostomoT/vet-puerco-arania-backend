@@ -1,7 +1,7 @@
 const passportJWT = require("passport-jwt");
 const JwtStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
-const UserModel = require("../models/user");
+require('dotenv').config();
 
 const config = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
